@@ -105,6 +105,7 @@ export default function QuizScreen(){
       }))
       timerRef.current = window.setTimeout(goNext, 1500)
     } else {
+      
       const nextWrongAttempts = wrongAttempts + 1
       const nextStates = [...selectedStates]
       nextStates[i] = 'wrong'
