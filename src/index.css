@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+:root{
+  --bg1:#f7faff;
+  --bg2:#eaf1ff;
+  --panel:#ffffff;
+  --panel-2:#edf4ff;
+  --gold:#f2b705;
+  --gold-soft:#ffd766;
+  --cyan:#27bde8;
+  --text:#152238;
+  --muted:rgba(21,34,56,0.68);
+  --line:rgba(21,34,56,0.14);
+  --wrong:#e63946;
+  --correct:#2ecc71;
+}
+
+*{box-sizing:border-box}
+
+html,
+body,
+#root{
+  min-height:100%;
+  margin:0;
+}
+
+body{
+  font-family:'Poppins',Arial,sans-serif;
+  color:var(--text);
+  background:
+    radial-gradient(circle at 18% 12%, rgba(255,215,0,0.24), transparent 30%),
+    radial-gradient(circle at 82% 88%, rgba(39,189,232,0.18), transparent 28%),
+    linear-gradient(180deg,var(--bg1),var(--bg2) 72%);
+  letter-spacing:0;
+}
+
+button{
+  font:inherit;
+}
+
+button:focus-visible{
+  outline:3px solid rgba(39,189,232,0.78);
+  outline-offset:3px;
+}
+
+.eyebrow{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  color:var(--gold);
+  font-size:13px;
+  font-weight:700;
+  text-transform:uppercase;
+}
+
+.glow-btn,
+.start-btn,
+.begin-btn,
+.play-again{
+  min-height:46px;
+  border:0;
+  color:#152238;
+  background:linear-gradient(90deg,var(--gold),var(--gold-soft));
+  box-shadow:0 0 0 1px rgba(255,255,255,0.72) inset, 0 10px 24px rgba(242,183,5,0.22);
+  font-weight:800;
+  cursor:pointer;
+}
+
+.glow-btn{
+  animation:pulseGlow 1.8s ease-in-out infinite;
+}
+
+@keyframes pulseGlow{
+  0%,100%{box-shadow:0 0 0 1px rgba(255,255,255,0.72) inset, 0 10px 22px rgba(242,183,5,0.18)}
+  50%{box-shadow:0 0 0 1px rgba(255,255,255,0.9) inset, 0 14px 34px rgba(242,183,5,0.36)}
+}
