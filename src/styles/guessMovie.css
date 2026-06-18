@@ -1,0 +1,225 @@
+.movie-root{
+  min-height:100vh;
+  min-height:100svh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:24px;
+  overflow:hidden;
+}
+
+.movie-panel{
+  width:min(980px,100%);
+  border:1px solid rgba(242,183,5,0.2);
+  border-radius:12px;
+  background:linear-gradient(145deg,rgba(255,255,255,0.94),rgba(238,245,255,0.94));
+  box-shadow:0 24px 60px rgba(57,83,125,0.18);
+  padding:22px;
+}
+
+.movie-topbar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:18px;
+}
+
+.movie-topbar h1{
+  margin:4px 0 0;
+  color:#152238;
+  font-size:42px;
+  line-height:1.08;
+}
+
+.movie-timer{
+  width:98px;
+  height:98px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  border:4px solid rgba(242,183,5,0.42);
+  border-radius:50%;
+  background:#fff;
+  color:#31405c;
+  font-size:15px;
+  font-weight:800;
+  box-shadow:0 14px 28px rgba(57,83,125,0.14);
+}
+
+.movie-timer span{
+  color:#9d7300;
+  font-size:38px;
+  line-height:1;
+}
+
+.movie-timer.danger{
+  border-color:rgba(230,57,70,0.5);
+}
+
+.movie-timer.danger span{
+  color:var(--wrong);
+}
+
+.movie-progress{
+  margin:12px 0 14px;
+  color:var(--muted);
+  font-size:16px;
+  font-weight:800;
+}
+
+.movie-card{
+  display:grid;
+  gap:14px;
+}
+
+.movie-clue{
+  width:100%;
+  max-height:430px;
+  display:block;
+  object-fit:contain;
+  border:5px solid rgba(255,255,255,0.88);
+  border-radius:12px;
+  background:#180737;
+  box-shadow:0 20px 42px rgba(57,83,125,0.18);
+}
+
+.movie-answer-area{
+  min-height:86px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.movie-waiting{
+  color:#31405c;
+  font-size:18px;
+  font-weight:800;
+  text-align:center;
+}
+
+.movie-answer{
+  max-width:100%;
+  overflow:hidden;
+  white-space:nowrap;
+  text-align:center;
+}
+
+.movie-answer span{
+  display:block;
+  color:var(--muted);
+  font-size:15px;
+  font-weight:800;
+  text-transform:uppercase;
+}
+
+.movie-answer strong{
+  display:block;
+  color:#152238;
+  font-size:48px;
+  line-height:1.12;
+  text-shadow:0 8px 22px rgba(242,183,5,0.2);
+}
+
+.movie-controls{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+  margin-top:8px;
+}
+
+.movie-nav{
+  min-height:50px;
+  border:1px solid rgba(21,34,56,0.14);
+  border-radius:10px;
+  background:rgba(255,255,255,0.82);
+  color:#263653;
+  font-size:18px;
+  font-weight:800;
+  cursor:pointer;
+  box-shadow:0 10px 22px rgba(57,83,125,0.1);
+}
+
+.movie-nav.primary{
+  border-color:rgba(242,183,5,0.32);
+  background:linear-gradient(90deg,var(--gold),var(--gold-soft));
+  color:#152238;
+}
+
+.movie-nav:disabled{
+  cursor:not-allowed;
+  opacity:.46;
+}
+
+.final-movie-root{
+  position:relative;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(242,183,5,0.28), transparent 28%),
+    radial-gradient(circle at 80% 75%, rgba(39,189,232,0.22), transparent 28%),
+    linear-gradient(180deg,#f7faff,#dff3ff);
+}
+
+.final-movie-panel{
+  position:relative;
+  z-index:1;
+  width:min(760px,100%);
+  padding:46px 28px;
+  border:1px solid rgba(242,183,5,0.26);
+  border-radius:16px;
+  background:rgba(255,255,255,0.9);
+  box-shadow:0 26px 80px rgba(57,83,125,0.2);
+  text-align:center;
+}
+
+.final-movie-panel h1{
+  margin:8px 0 8px;
+  color:#152238;
+  font-size:64px;
+  line-height:1.05;
+}
+
+.final-movie-panel p{
+  margin:0;
+  color:#31405c;
+  font-size:24px;
+  font-weight:800;
+}
+
+@media(max-height:760px){
+  .movie-panel{padding:18px}
+  .movie-topbar h1{font-size:34px}
+  .movie-timer{width:82px;height:82px}
+  .movie-timer span{font-size:31px}
+  .movie-clue{max-height:340px}
+  .movie-answer-area{min-height:70px}
+  .movie-answer strong{font-size:38px}
+}
+
+@media(max-width:700px){
+  .movie-root{
+    align-items:flex-start;
+    padding:14px;
+    overflow:auto;
+  }
+  .movie-panel{padding:16px}
+  .movie-topbar{
+    align-items:flex-start;
+    flex-direction:column;
+  }
+  .movie-topbar h1{font-size:34px}
+  .movie-timer{
+    width:100%;
+    height:auto;
+    min-height:58px;
+    border-radius:10px;
+    flex-direction:row;
+    gap:8px;
+  }
+  .movie-timer span{font-size:30px}
+  .movie-clue{max-height:none}
+  .movie-answer{white-space:normal}
+  .movie-answer strong{font-size:34px}
+  .movie-controls{grid-template-columns:1fr}
+  .final-movie-panel h1{font-size:42px}
+  .final-movie-panel p{font-size:18px}
+}

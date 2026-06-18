@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect, useMemo, useRef } from 'react'
+import React, { useContext, useState, useMemo } from 'react'
 import { QuestionsContext } from '../context/QuestionsContext'
 import OptionButton from './OptionButton'
 import { motion, AnimatePresence } from 'framer-motion'
@@ -41,15 +41,6 @@ export default function QuizScreen(){
   const [index, setIndex] = useState(0)
   const [questionProgress, setQuestionProgress] = useState(() => questions.map(() => createQuestionProgress()))
   const navigate = useNavigate()
-  const timerRef = useRef(null)
-
-  useEffect(()=>{
-    window.clearTimeout(timerRef.current)
-  },[index])
-
-  useEffect(() => {
-    return () => window.clearTimeout(timerRef.current)
-  }, [])
 
   if(!shuffledQuestions || shuffledQuestions.length===0) return <div>Loading...</div>
 
@@ -75,8 +66,11 @@ export default function QuizScreen(){
   }
 
   function jumpToQuestion(questionIndex){
-    window.clearTimeout(timerRef.current)
     setIndex(questionIndex)
+  }
+
+  function goBack(){
+    setIndex(currentIndex => Math.max(0, currentIndex - 1))
   }
 
   function handleOptionClick(i){
@@ -103,7 +97,6 @@ export default function QuizScreen(){
         firstAttemptDone: true,
         showAnswerHint: false
       }))
-      timerRef.current = window.setTimeout(goNext, 1500)
     } else {
       
       const nextWrongAttempts = wrongAttempts + 1
@@ -182,7 +175,17 @@ export default function QuizScreen(){
         ) : null}
       </AnimatePresence>
 
-      <div className="score-chip">Score: {score}</div>
+      <div className="quiz-footer">
+        <button className="nav-control" onClick={goBack} disabled={index === 0} type="button">
+          Back
+        </button>
+
+        <div className="score-chip">Score: {score}</div>
+
+        <button className="nav-control primary" onClick={goNext} type="button">
+          {index === shuffledQuestions.length - 1 ? 'Finish' : 'Next'}
+        </button>
+      </div>
 
       <div className="question-road" aria-label="Question roadmap">
         <div className="road-head">

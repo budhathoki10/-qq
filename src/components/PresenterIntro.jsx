@@ -25,7 +25,7 @@ export default function PresenterIntro(){
         transition={{ delay: 0.12, duration: 0.55, ease: 'easeOut' }}
       >
         <div className="presenter-photo-frame">
-          <img src={presentersPhoto} alt="Sabin KC and Rahul Sirjapati" className="presenter-photo"/>
+          <img src={presentersPhoto} alt="Sabin KC and Rahul pati" className="presenter-photo"/>
           <div className="photo-caption">DAV Semester 4</div>
         </div>
 
@@ -35,7 +35,7 @@ export default function PresenterIntro(){
             <p className="title">Quiz Presenter</p>
           </div>
           <div className="presenter-person">
-            <h3>Rahul Sirjapati</h3>
+            <h3>Rahul Srijapati</h3>
             <p className="title">Quiz Presenter</p>
           </div>
         </div>
@@ -44,7 +44,7 @@ export default function PresenterIntro(){
       </motion.div>
 
       <motion.p className="hostline" initial={{opacity:0}} animate={{opacity:1}} transition={{delay:0.8}}>
-        Hosted by Sabin KC &amp; Rahul Sirjapati
+        Hosted by Sabin KC &amp; Rahul Srijapati
       </motion.p>
 
       <motion.button className="begin-btn" whileHover={{scale:1.02}} onClick={()=>navigate('/quiz')}>

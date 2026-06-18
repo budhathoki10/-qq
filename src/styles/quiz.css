@@ -70,32 +70,32 @@
 }
 
 .question-road{
-  margin-top:16px;
-  padding:16px 18px;
-  border:1px solid rgba(21,34,56,0.1);
-  border-radius:14px;
+  margin-top:10px;
+  padding:8px 12px;
+  border:1px solid rgba(21,34,56,0.09);
+  border-radius:10px;
   background:rgba(255,255,255,0.76);
-  box-shadow:0 16px 36px rgba(57,83,125,0.12);
+  box-shadow:0 8px 20px rgba(57,83,125,0.08);
 }
 
 .road-head{
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap:14px;
-  margin-bottom:14px;
+  gap:8px;
+  margin-bottom:6px;
 }
 
 .road-label{
   color:#31405c;
-  font-size:17px;
+  font-size:13px;
   font-weight:800;
 }
 
 .road-subtitle{
-  margin-top:2px;
+  margin-top:0;
   color:var(--muted);
-  font-size:13px;
+  font-size:11px;
   font-weight:700;
 }
 
@@ -104,7 +104,7 @@
   flex-direction:row;
   flex-wrap:wrap;
   align-items:center;
-  gap:9px;
+  gap:5px;
   overflow:visible;
   padding:0;
   position:relative;
@@ -113,10 +113,10 @@
 .road-list::before{
   content:'';
   position:absolute;
-  left:18px;
-  right:18px;
-  top:21px;
-  height:3px;
+  left:12px;
+  right:12px;
+  top:14px;
+  height:2px;
   border-radius:999px;
   background:linear-gradient(90deg,rgba(242,183,5,0.4),rgba(39,189,232,0.22));
 }
@@ -124,17 +124,17 @@
 .road-dot{
   position:relative;
   z-index:1;
-  width:42px;
-  height:42px;
+  width:28px;
+  height:28px;
   margin:0;
-  border:2px solid rgba(21,34,56,0.12);
+  border:1px solid rgba(21,34,56,0.12);
   border-radius:50%;
   background:#f8fbff;
   color:#263653;
-  font-size:15px;
+  font-size:12px;
   font-weight:800;
   cursor:pointer;
-  box-shadow:0 8px 18px rgba(57,83,125,0.12);
+  box-shadow:0 4px 10px rgba(57,83,125,0.08);
   transition:border-color .2s ease, box-shadow .2s ease, transform .2s ease;
 }
 
@@ -147,7 +147,7 @@
   background:linear-gradient(135deg,var(--gold),var(--gold-soft));
   color:#152238;
   border-color:rgba(157,115,0,0.24);
-  box-shadow:0 0 0 6px rgba(242,183,5,0.18), 0 10px 22px rgba(57,83,125,0.16);
+  box-shadow:0 0 0 3px rgba(242,183,5,0.16), 0 6px 12px rgba(57,83,125,0.12);
 }
 
 .road-dot.answered{
@@ -167,15 +167,15 @@
 }
 
 .movie-road-note{
-  min-height:34px;
+  min-height:26px;
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  padding:0 12px;
+  padding:0 9px;
   border-radius:999px;
   background:rgba(39,189,232,0.12);
   color:#126f89;
-  font-size:13px;
+  font-size:11px;
   font-weight:800;
   text-align:center;
   white-space:nowrap;
@@ -294,14 +294,41 @@
   font-weight:800;
 }
 
+.quiz-footer{
+  display:grid;
+  grid-template-columns:140px 1fr 140px;
+  align-items:center;
+  gap:14px;
+  margin-top:18px;
+}
+
 .score-chip{
-  position:static;
-  align-self:flex-end;
-  margin-top:16px;
-  padding:0;
+  justify-self:center;
   color:#31405c;
   font-size:19px;
   font-weight:800;
+}
+
+.nav-control{
+  min-height:46px;
+  border:1px solid rgba(21,34,56,0.14);
+  border-radius:10px;
+  background:rgba(255,255,255,0.8);
+  color:#263653;
+  font-weight:800;
+  cursor:pointer;
+  box-shadow:0 10px 22px rgba(57,83,125,0.1);
+}
+
+.nav-control.primary{
+  border-color:rgba(242,183,5,0.32);
+  background:linear-gradient(90deg,var(--gold),var(--gold-soft));
+  color:#152238;
+}
+
+.nav-control:disabled{
+  cursor:not-allowed;
+  opacity:.45;
 }
 
 @media(max-width:700px){
@@ -312,7 +339,7 @@
   .topbar{align-items:stretch;flex-direction:column}
   .cat,.progress{width:100%;justify-content:center}
   .question-road{
-    padding:14px;
+    padding:8px;
   }
   .road-head{
     align-items:flex-start;
@@ -321,14 +348,14 @@
   }
   .road-list{
     justify-content:center;
-    gap:7px;
+    gap:6px;
   }
   .road-list::before{display:none}
   .road-dot{
-    width:34px;
-    height:34px;
+    width:28px;
+    height:28px;
     margin-bottom:0;
-    font-size:14px;
+    font-size:12px;
   }
   .movie-road-note{
     width:100%;
@@ -344,11 +371,11 @@
   }
   .opt-label{width:36px;height:36px}
   .opt-text{font-size:17px}
-  .score-chip{
-    width:100%;
-    justify-content:center;
-    text-align:center;
+  .quiz-footer{
+    grid-template-columns:1fr;
+    gap:10px;
   }
+  .score-chip{text-align:center}
   .answer-mark{
     grid-column:2;
     justify-self:start;

@@ -27,6 +27,7 @@ export default function IntroScreen(){
       <div className="intro-content">
         <h1 className="title">
           <span className="type">QUIZ TIME!</span>
+      
         </h1>
 
         <motion.p className="subtitle" initial={{opacity:0}} animate={{opacity:1}} transition={{delay:1.7}}>

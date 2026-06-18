@@ -6,7 +6,7 @@ import { motion } from 'framer-motion'
 import '../styles/result.css'
 
 export default function ResultScreen(){
-  const { questions, score, perQuestionFirstCorrect, reset } = useContext(QuestionsContext)
+  const { questions, score, perQuestionFirstCorrect } = useContext(QuestionsContext)
   const navigate = useNavigate()
   const [count, setCount] = useState(0)
 
@@ -79,7 +79,7 @@ export default function ResultScreen(){
         </div>
 
         <div className="result-actions">
-          <button onClick={()=>{ reset(); navigate('/'); }} className="play-again">Play Again</button>
+          <button onClick={()=>navigate('/guess-movie')} className="play-again">Guess the Movie</button>
         </div>
       </motion.div>
     </div>
