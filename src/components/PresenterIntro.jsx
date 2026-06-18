@@ -35,7 +35,7 @@ export default function PresenterIntro(){
             <p className="title">Quiz Presenter</p>
           </div>
           <div className="presenter-person">
-            <h3>Rahul Srijapati</h3>
+            <h3>Rahul Sijapatii</h3>
             <p className="title">Quiz Presenter</p>
           </div>
         </div>
