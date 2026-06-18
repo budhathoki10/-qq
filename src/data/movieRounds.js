@@ -1,34 +1,34 @@
-import dalmatiansImage from '../assets/movie-clues/page-1-image-1.jpg'
-import sonicImage from '../assets/movie-clues/page-1-image-2.jpg'
-import encantoImage from '../assets/movie-clues/page-2-image-1.jpg'
-import nightmareImage from '../assets/movie-clues/page-2-image-2.jpg'
-import elementalImage from '../assets/movie-clues/page-3-image-1.jpg'
+import madeInChinaImage from '../assets/movie-clues/made-in-china.jpg'
+import housefullImage from '../assets/movie-clues/housefull-4.jpg'
+import motherIndiaImage from '../assets/movie-clues/mother-india.jpg'
+import patiPatniImage from '../assets/movie-clues/pati-patni-aur-woh.jpg'
+import deDePyaarDeImage from '../assets/movie-clues/de-de-pyaar-de.jpg'
 
 const MOVIE_ROUNDS = [
   {
     id: 1,
-    answer: '101 Dalmatians',
-    image: dalmatiansImage
+    answer: 'Made in China',
+    image: madeInChinaImage
   },
   {
     id: 2,
-    answer: 'Sonic',
-    image: sonicImage
+    answer: 'Housefull 4',
+    image: housefullImage
   },
   {
     id: 3,
-    answer: 'Encanto',
-    image: encantoImage
+    answer: 'Mother India',
+    image: motherIndiaImage
   },
   {
     id: 4,
-    answer: 'The Nightmare Before Christmas',
-    image: nightmareImage
+    answer: 'Pati Patni Aur Woh',
+    image: patiPatniImage
   },
   {
     id: 5,
-    answer: 'Elemental',
-    image: elementalImage
+    answer: 'De De Pyaar De',
+    image: deDePyaarDeImage
   }
 ]
 

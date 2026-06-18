@@ -56,7 +56,7 @@ const QUESTIONS = [
   },
   {
     id: 6,
-    category: 'Nepal Affairs',
+    category: 'Current Affairs',
     icon: 'N',
     question: 'Which country was the first to recognize Nepal’s Federal Democratic Republic after the abolition of the monarchy?',
     options: ['China', 'India', 'United States', 'United Kingdom'],
@@ -64,7 +64,7 @@ const QUESTIONS = [
   },
   {
     id: 7,
-    category: 'Nepal Affairs',
+    category: 'Current Affairs',
     icon: 'N',
     question: 'Nepal became a member of the United Nations (UN) in which year?',
     options: ['1948', '1955', '1960', '1965'],
@@ -72,7 +72,7 @@ const QUESTIONS = [
   },
   {
     id: 8,
-    category: 'Nepal Affairs',
+    category: 'Current Affairs',
     icon: 'N',
     question: 'Nepal joined the World Trade Organization (WTO) in which year?',
     options: ['2002', '2004', '2006', '2008'],
@@ -80,7 +80,7 @@ const QUESTIONS = [
   },
   {
     id: 9,
-    category: 'Nepal Affairs',
+    category: 'Current Affairs',
     icon: 'N',
     question: 'Who became Nepal’s first Vice President?',
     options: ['Nanda Bahadur Pun', 'Parmananda Jha', 'Ram Sahaya Prasad Yadav', 'Bidhya Devi Bhandari'],
@@ -88,7 +88,7 @@ const QUESTIONS = [
   },
   {
     id: 10,
-    category: 'Nepal Affairs',
+    category: 'Current Affairs',
     icon: 'N',
     question: 'Who was the first President of the Federal Democratic Republic of Nepal?',
     options: ['Ram Baran Yadav', 'Bidhya Devi Bhandari', 'Khil Raj Regmi', 'Girija Prasad Koirala'],

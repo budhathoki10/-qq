@@ -193,7 +193,7 @@ export default function QuizScreen(){
             <div className="road-label">Question Road</div>
             <div className="road-subtitle">Jump directly to any question</div>
           </div>
-          <span className="movie-road-note">Movie round ready</span>
+      
         </div>
 
         <div className="road-list">

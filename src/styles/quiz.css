@@ -106,19 +106,13 @@
   align-items:center;
   gap:5px;
   overflow:visible;
-  padding:0;
-  position:relative;
-}
-
-.road-list::before{
-  content:'';
-  position:absolute;
-  left:12px;
-  right:12px;
-  top:14px;
-  height:2px;
-  border-radius:999px;
-  background:linear-gradient(90deg,rgba(242,183,5,0.4),rgba(39,189,232,0.22));
+  width:max-content;
+  max-width:100%;
+  padding:6px;
+  border:1px solid rgba(21,34,56,0.1);
+  border-radius:8px;
+  background:rgba(248,251,255,0.86);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,0.75);
 }
 
 .road-dot{
@@ -349,8 +343,8 @@
   .road-list{
     justify-content:center;
     gap:6px;
+    width:100%;
   }
-  .road-list::before{display:none}
   .road-dot{
     width:28px;
     height:28px;

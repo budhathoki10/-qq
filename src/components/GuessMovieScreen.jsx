@@ -4,33 +4,13 @@ import confetti from 'canvas-confetti'
 import MOVIE_ROUNDS from '../data/movieRounds'
 import '../styles/guessMovie.css'
 
-const ROUND_SECONDS = 12
-
 export default function GuessMovieScreen(){
+  const [started, setStarted] = useState(false)
   const [index, setIndex] = useState(0)
-  const [timeLeft, setTimeLeft] = useState(ROUND_SECONDS)
   const [revealed, setRevealed] = useState(false)
   const [complete, setComplete] = useState(false)
 
   const round = MOVIE_ROUNDS[index]
-
-  useEffect(() => {
-    if(complete || revealed) return undefined
-
-    const timer = window.setInterval(() => {
-      setTimeLeft(current => {
-        if(current <= 1){
-          window.clearInterval(timer)
-          setRevealed(true)
-          return 0
-        }
-
-        return current - 1
-      })
-    }, 1000)
-
-    return () => window.clearInterval(timer)
-  }, [index, revealed, complete])
 
   useEffect(() => {
     if(!complete) return undefined
@@ -55,7 +35,6 @@ export default function GuessMovieScreen(){
 
   function resetRound(nextIndex){
     setIndex(nextIndex)
-    setTimeLeft(ROUND_SECONDS)
     setRevealed(false)
   }
 
@@ -73,6 +52,45 @@ export default function GuessMovieScreen(){
     }
 
     resetRound(index + 1)
+  }
+
+  if(!started){
+    return (
+      <div className="movie-intro-root">
+        <motion.div
+          className="movie-spotlight"
+          animate={{ opacity: [0.58, 1, 0.58] }}
+          transition={{ duration: 3, repeat: Infinity }}
+        />
+        <div className="movie-particles" aria-hidden="true">
+          <span />
+          <span />
+          <span />
+          <span />
+          <span />
+        </div>
+
+        <div className="movie-intro-content">
+          <h1 className="movie-intro-title">
+            <span className="movie-intro-type">Guess the Movie</span>
+            <span className="movie-intro-edition">Bollywood Edition</span>
+          </h1>
+
+          <motion.button
+            className="movie-start-btn glow-btn"
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.98 }}
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 2.05 }}
+            onClick={() => setStarted(true)}
+            type="button"
+          >
+            Get Started
+          </motion.button>
+        </div>
+      </div>
+    )
   }
 
   if(complete){
@@ -96,15 +114,7 @@ export default function GuessMovieScreen(){
     <div className="movie-root">
       <div className="movie-panel">
         <div className="movie-topbar">
-          <div>
-            <span className="eyebrow">Bonus Round</span>
-            <h1>Guess the Movie</h1>
-          </div>
-
-          <div className={`movie-timer ${timeLeft <= 5 ? 'danger' : ''}`}>
-            <span>{timeLeft}</span>
-            sec
-          </div>
+          <h1>Guess the Movie</h1>
         </div>
 
         <div className="movie-progress">Movie {index + 1} of {MOVIE_ROUNDS.length}</div>
@@ -121,19 +131,20 @@ export default function GuessMovieScreen(){
             <img src={round.image} alt={`Movie clue ${index + 1}`} className="movie-clue" />
 
             <div className="movie-answer-area">
-              {revealed ? (
-                <motion.div
-                  className="movie-answer"
-                  initial={{ width: 0, opacity: 0 }}
-                  animate={{ width: 'auto', opacity: 1 }}
-                  transition={{ duration: 0.8, ease: 'easeOut' }}
-                >
-                  <span>The answer is</span>
-                  <strong>{round.answer}</strong>
-                </motion.div>
-              ) : (
-                <div className="movie-waiting">Answer reveals when the timer reaches zero.</div>
-              )}
+              <AnimatePresence>
+                {revealed ? (
+                  <motion.div
+                    className="movie-answer"
+                    initial={{ width: 0, opacity: 0, y: 12 }}
+                    animate={{ width: 'auto', opacity: 1, y: 0 }}
+                    exit={{ width: 0, opacity: 0, y: 12 }}
+                    transition={{ duration: 0.78, ease: 'easeOut' }}
+                  >
+                    <span>The movie name is</span>
+                    <strong>{round.answer}</strong>
+                  </motion.div>
+                ) : null}
+              </AnimatePresence>
             </div>
           </motion.div>
         </AnimatePresence>
@@ -141,6 +152,10 @@ export default function GuessMovieScreen(){
         <div className="movie-controls">
           <button className="movie-nav" onClick={goBack} disabled={index === 0} type="button">
             Back
+          </button>
+
+          <button className="movie-nav reveal" onClick={() => setRevealed(true)} disabled={revealed} type="button">
+            Reveal Movie Name
           </button>
 
           <button className="movie-nav primary" onClick={goNext} disabled={!revealed} type="button">

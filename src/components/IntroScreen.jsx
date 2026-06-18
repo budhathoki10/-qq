@@ -8,7 +8,7 @@ export default function IntroScreen(){
   const categories = [
     { icon: 'M', label: 'Marketing BBA' },
     { icon: 'S', label: 'Sports' },
-    { icon: 'N', label: 'Nepal Affairs' },
+    { icon: 'N', label: 'Current Affairs' },
     { icon: 'P', label: 'Politics' },
     { icon: 'R', label: 'Riddles' }
   ]
